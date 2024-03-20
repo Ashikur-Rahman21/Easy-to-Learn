@@ -1,3 +1,9 @@
+<!-- 
+    Write a PHP script that checks if a given number $num is positive, negative, or zero, and 
+    prints an appropriate message.
+
+-->
+
 <!doctype html>
 <html>
 <head>
@@ -21,14 +27,16 @@
     </div>
 
     <?php 
-        $num = $_POST['number'];
+        $num = isset($_POST['number']) ? $_POST['number'] : "";
         
-        if($num > 0){
-            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>{$num} is Positive Number</h1>";
-        } elseif($num < 0){
-            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>{$num} is Negative Number</h1>";
-        } else{
-            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>{$num} is Zero</h1>";
+        if ($num === "") {
+            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>No input provided</h1>";
+        } elseif ($num > 0) {
+            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>$num is Positive Number</h1>";
+        } elseif ($num < 0) {
+            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>$num is Negative Number</h1>";
+        } else {
+            echo "<h1 class='flex text-blue-900 justify-center mt-10 font-bold'>$num is Zero</h1>";
         }
 
     ?>
